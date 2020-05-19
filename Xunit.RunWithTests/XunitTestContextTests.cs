@@ -24,7 +24,7 @@ namespace Xunit.RunWithTests
     [RunWith(typeof(RunWithTest))]
     public class UnitTest1 : XunitTest
     {
-        public UnitTest1(TestContext context) : base(context)
+        public UnitTest1(XunitTestContext context) : base(context)
         {
         }
 

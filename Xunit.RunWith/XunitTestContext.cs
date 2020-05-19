@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace Xunit.RunWith
 {
-    public class TestContext : IDisposable
+    public class XunitTestContext : IDisposable
     {
         private IRunWith _runWith;
 
@@ -21,6 +21,12 @@ namespace Xunit.RunWith
             }
 
             var runWith = type.GetCustomAttribute<RunWithAttribute>();
+
+            if (runWith == null)
+            {
+                throw new InvalidOperationException("No run with class is found.");
+            }
+
             _runWith = (IRunWith)Activator.CreateInstance(runWith.RunWithClass);
         }
 

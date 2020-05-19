@@ -1,8 +1,8 @@
 ﻿namespace Xunit.RunWith
 {
-    public class XunitTest : IClassFixture<TestContext>
+    public class XunitTest : IClassFixture<XunitTestContext>
     {
-        public XunitTest(TestContext context)
+        public XunitTest(XunitTestContext context)
         {
             context.Initialize(GetType(), this);
             context.Run(GetType(), this);
